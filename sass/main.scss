@@ -1,0 +1,366 @@
+@use "./abstract" as *;
+@use "./base" as *;
+@use "./sections" as *;
+
+// *** Main ***
+.main {
+	background-color: $color-tertiary;
+
+	overflow-x: hidden;
+
+	@include dimension-settings(100%);
+
+	// *** Main Hero ***
+	&__hero {
+		position: relative;
+
+		padding: 5.6rem 0 55.6rem 0;
+
+		background-color: $color-primary;
+
+		@include dimension-settings(100%, calc(58.4rem - 7.2rem));
+
+		@include flex-settings(center, null);
+
+		@include respon-design(tablet) {
+			padding: 9.6rem 0 25rem 0;
+		}
+
+		&-img {
+			position: absolute;
+
+			@include respon-design(mobile-large) {
+				display: none;
+			}
+		}
+
+		&-img01 {
+			left: -10rem;
+
+			@include respon-design(desktop-small) {
+				left: -20rem;
+			}
+
+			@include respon-design(tablet) {
+				left: -25rem;
+				top: 5rem;
+			}
+		}
+
+		&-img02 {
+			bottom: 27%;
+			right: -5rem;
+
+			@include respon-design(desktop-small) {
+				right: -10rem;
+			}
+		}
+
+		&-container {
+			position: relative;
+
+			text-align: center;
+
+			@include dimension-settings(100%, null, 63.5rem);
+
+			@include respon-design(desktop-small) {
+				@include dimension-settings(100%, null, 55rem);
+			}
+		}
+
+		&-heading {
+			color: $color-white;
+
+			margin-bottom: 4rem;
+
+			@include font-settings(8rem, 500, 100%);
+
+			@include respon-design(desktop-small) {
+				@include font-settings(6rem, 500, 100%);
+			}
+
+			@include respon-design(mobile-small) {
+				@include font-settings(5.4rem, 500, 100%);
+			}
+		}
+
+		&-tailored {
+			position: relative;
+
+			&::before {
+				bottom: 0.9rem;
+
+				animation-delay: 1.1s;
+
+				@extend %styleBefore-elements;
+			}
+		}
+
+		&-btn {
+			@extend %style-buttons;
+		}
+	}
+	// *** End of Main Hero ***
+
+	// *** Hero BG Image & Border Rounded ***
+	&__illustration {
+		position: absolute;
+		top: 48rem;
+		left: 50%;
+		transform: translateX(-50%);
+		z-index: 15;
+
+		@include dimension-settings(100%, null, 76.7rem);
+
+		@include respon-design(desktop-small) {
+			@include dimension-settings(100%, null, 70rem, 44.1rem);
+		}
+
+		@include respon-design(tablet) {
+			top: 45rem;
+		}
+
+		@include respon-design(mobile-small) {
+			top: 50rem;
+		}
+	}
+
+	&__border-rounded {
+		margin-top: -20px;
+
+		transform: rotate(180deg);
+
+		clip-path: ellipse(53% 100% at 50% 100%);
+
+		@include dimension-settings(100%, 7.2rem);
+	}
+
+	// *** Hero Section ***
+	&__border-rounded--hero {
+		background-color: $color-primary;
+	}
+
+	// *** Values Section ***
+	&__border-rounded--values {
+		background-color: $color-tertiary;
+
+		position: relative;
+		bottom: -5rem;
+		z-index: 5;
+	}
+	// *** End of Hero BG Image & Border Rounded ***
+
+	// *** Main Values ***
+	&__values {
+		background-color: $color-tertiary;
+
+		// padding: 23.8rem 8rem 14.4rem;
+		padding: 23.8rem 8rem 12rem;
+
+		@include dimension-settings(100%);
+		@include flex-settings(center, null);
+		@include font-settings(1.8rem, 400, 180%);
+
+		&-container {
+			@include dimension-settings(100%, null, 112rem);
+			@include flex-settings(null, null, $gap: 3.2rem);
+
+			@include respon-design(desktop) {
+				flex-direction: column;
+
+				@include dimension-settings(100%, null, 80rem);
+			}
+
+			@include respon-design(tablet) {
+				margin-top: 6rem;
+			}
+
+			@include respon-design(mobile) {
+				margin-top: 0;
+			}
+		}
+
+		&-item {
+			display: grid;
+			place-items: center;
+			grid-template-columns: 1fr;
+			grid-template-rows: auto;
+
+			text-align: center;
+
+			@include respon-design(desktop) {
+				grid-template-columns: 10rem 1fr 1fr;
+				grid-template-rows: auto;
+				justify-items: baseline;
+
+				text-align: left;
+			}
+
+			@include respon-design(mobile-large) {
+				grid-template-columns: 1fr;
+				grid-template-rows: auto;
+				justify-items: center;
+
+				text-align: center;
+			}
+		}
+
+		&-number {
+			border: 0.1rem solid $color-quaternary;
+			border-radius: 50%;
+
+			margin-bottom: 5.6rem;
+
+			grid-column: 1/4;
+
+			@include dimension-settings(5.6rem, 5.6rem);
+			@include font-settings(2.4rem, 500, 4rem);
+			@include flex-settings;
+
+			@include respon-design(desktop) {
+				margin-bottom: -4.9rem;
+				grid-column: 1/2;
+			}
+
+			@include respon-design(mobile-large) {
+				margin-bottom: 5.6rem;
+
+				grid-column: 1/4;
+			}
+		}
+
+		&-title {
+			margin-bottom: 2.8rem;
+
+			@include font-settings(3.2rem, 600, 120%);
+			grid-column: 2/4;
+		}
+
+		&-description {
+			font-family: "Manrope", serif;
+			grid-column: 2/4;
+		}
+	}
+	// *** End of Main Values ***
+
+	// *** Main Founder ***
+	.main__founder {
+		background-color: $color-white;
+
+		padding: 15rem 8rem 12rem;
+
+		@include dimension-settings(100%);
+
+		@include respon-design(desktop-small) {
+			padding: 15rem 3rem 12rem;
+		}
+
+		&-container {
+			display: flex;
+			@include dimension-settings(100%, null, 112rem);
+
+			@include respon-design(tablet-small) {
+				flex-direction: column;
+				justify-content: center;
+				align-items: center;
+			}
+		}
+
+		&-imgBox {
+			position: relative;
+			left: 6rem;
+
+			padding-bottom: calc(57.9rem - 44.7rem);
+
+			@include dimension-settings(100%, 100%, 44.7rem);
+
+			@include respon-design(desktop) {
+				@include dimension-settings(100%, 100%, 28rem);
+				left: 8rem;
+			}
+
+			@include respon-design(tablet-large) {
+				@include dimension-settings(100%, 100%, 22rem);
+				top: 3rem;
+				left: 0;
+			}
+
+			@include respon-design(tablet-small) {
+				top: 4rem;
+				padding-bottom: 0;
+			}
+		}
+
+		&-content {
+			position: relative;
+			z-index: 5;
+
+			margin-top: 16.8rem;
+			padding: 6.4rem;
+
+			background-color: $color-primary;
+			color: $color-white;
+
+			@include dimension-settings(100%, null, 73rem);
+			@include flex-settings(null, null, column, 3.2rem);
+
+			@include respon-design(desktop) {
+				padding: 4.8rem;
+			}
+
+			@include respon-design(tablet-large) {
+				left: -8rem;
+			}
+
+			@include respon-design(tablet-small) {
+				left: 0;
+
+				margin-top: 0;
+			}
+		}
+
+		&-title {
+			@include font-settings(5.6rem, 600, 120%);
+
+			@include respon-design(desktop) {
+				@include font-settings(4.8rem, 600, 120%);
+			}
+
+			@include respon-design(tablet) {
+				@include font-settings(3.5rem, 600, 120%);
+			}
+		}
+
+		&-text {
+			@include font-settings(1.8rem, 400, 180%);
+
+			@include respon-design(desktop) {
+				@include font-settings(1.6rem, 400, 180%);
+			}
+
+			@include respon-design(tablet) {
+				@include font-settings(1.5rem, 600, 180%);
+			}
+		}
+
+		&-btn {
+			@extend %style-buttons;
+			align-self: baseline;
+		}
+
+		&-img {
+			position: absolute;
+			bottom: -3rem;
+			right: 8rem;
+			z-index: 10;
+
+			@include dimension-settings(17.3rem);
+
+			@include respon-design(tablet) {
+				right: -1rem;
+			}
+		}
+	}
+	// *** End of Main Founder ***
+}
+// *** End of Main ***

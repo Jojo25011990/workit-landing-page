@@ -1,0 +1,22 @@
+@use "../abstract" as *;
+
+html {
+	@media (max-width: 500px) {
+		font-size: 50%;
+	}
+}
+
+// *** Body ***
+body {
+	background-color: $color-white;
+	color: $color-primary;
+
+	font-family: "Fraunces", serif;
+
+	margin: 0 auto;
+
+	overflow-x: hidden;
+
+	@include dimension-settings(100vw, null, 144rem);
+}
+// *** End of Body ***

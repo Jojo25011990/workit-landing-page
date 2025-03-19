@@ -1,0 +1,40 @@
+@use "../abstract" as *;
+
+// *** Header ***
+.header {
+	padding: 5.6rem 6rem 0 6rem;
+
+	background-color: $color-primary;
+
+	@include dimension-settings(100%);
+	@include flex-settings(center, null);
+
+	&__container {
+		@include dimension-settings(100%, null, 111rem);
+		@include flex-settings(space-between);
+	}
+
+	&__btn {
+		&:link,
+		&:visited {
+			position: relative;
+
+			color: $color-white;
+
+			transition: color 0.25s;
+
+			font-family: "Manrope", serif;
+			@include font-settings(1.8rem, 700, 180%);
+
+			&::before {
+				@extend %styleBefore-elements;
+			}
+		}
+
+		&:hover,
+		&:active {
+			color: $color-secondary;
+		}
+	}
+}
+// *** End of Header ***

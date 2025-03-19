@@ -1,0 +1,32 @@
+@use "../abstract" as *;
+
+// *** Footer ***
+.footer {
+	background-color: $color-white;
+
+	padding: 11.2rem 8rem;
+
+	@include flex-settings(center, center, column, 5.6rem);
+	@include dimension-settings(100%);
+
+	&__list {
+		@include flex-settings(center, center, null, 2.8rem);
+
+		&-link {
+			&:link,
+			&:visited {
+				color: $color-quaternary;
+
+				transition: color 0.3s linear;
+
+				@include font-settings(3.2rem, null, null);
+			}
+
+			&:hover,
+			&:active {
+				color: $color-primary;
+			}
+		}
+	}
+}
+// *** End of Footer ***

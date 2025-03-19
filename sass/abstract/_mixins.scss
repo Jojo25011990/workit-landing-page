@@ -1,0 +1,140 @@
+@use "./variables" as *;
+
+// *** Flexbox Settings ****
+@mixin flex-settings(
+	$justify: center,
+	$align: center,
+	$direction: null,
+	$gap: null
+) {
+	display: flex;
+	justify-content: $justify;
+	align-items: $align;
+	flex-direction: $direction;
+
+	@if $gap {
+		gap: $gap;
+	}
+}
+
+// *** Font Settings ***
+@mixin font-settings($size, $weight, $line-height, $l-spacing: null) {
+	font-size: $size;
+	font-weight: $weight;
+	line-height: $line-height;
+
+	@if $l-spacing {
+		letter-spacing: $l-spacing;
+	}
+}
+
+@mixin dimension-settings(
+	$width: null,
+	$height: null,
+	$max-width: null,
+	$min-height: null
+) {
+	@if $width {
+		width: $width;
+	}
+	@if $height {
+		height: $height;
+	}
+
+	@if $max-width {
+		max-width: $max-width;
+	}
+	@if $min-height {
+		min-height: $min-height;
+	}
+}
+
+// *** Placeholders ***
+// *** ::before ***
+%styleBefore-elements {
+	&::before {
+		content: "";
+		position: absolute;
+		bottom: -0.1rem;
+		width: 0%;
+		height: 0.3rem;
+		background-color: $color-secondary;
+
+		animation: showBorderBottom 0.5s ease-in 0.5s forwards;
+	}
+}
+
+// *** Buttons ( anchor tag ) ***
+// *** Section Hero and Section Founder ***
+%style-buttons {
+	&:link,
+	&:visited {
+		background-color: $color-secondary;
+		padding: 1.2rem 3.2rem;
+		border: 0.2rem solid $color-secondary;
+		transition: background-color 0.25s, color 0.25s;
+		font-family: "Manrope", serif;
+
+		@include font-settings(1.8rem, 700, 180%);
+
+		@media (max-width: 780px) {
+			@include font-settings(1.4rem, 700, 180%);
+		}
+	}
+
+	&:hover,
+	&:active {
+		background-color: transparent;
+		color: $color-secondary;
+	}
+}
+
+@mixin respon-design($breakpoint) {
+	@if $breakpoint == desktop {
+		@media (max-width: 1200px) {
+			@content;
+		}
+	}
+
+	@if $breakpoint == desktop-small {
+		@media (max-width: 1080px) {
+			@content;
+		}
+	}
+
+	@if $breakpoint == tablet-large {
+		@media (max-width: 900px) {
+			@content;
+		}
+	}
+
+	@if $breakpoint == tablet {
+		@media (max-width: 780px) {
+			@content;
+		}
+	}
+
+	@if $breakpoint == tablet-small {
+		@media (max-width: 680px) {
+			@content;
+		}
+	}
+
+	@if $breakpoint == mobile-large {
+		@media (max-width: 600px) {
+			@content;
+		}
+	}
+
+	@if $breakpoint == mobile {
+		@media (max-width: 500px) {
+			@content;
+		}
+	}
+
+	@if $breakpoint == mobile-small {
+		@media (max-width: 400px) {
+			@content;
+		}
+	}
+}
