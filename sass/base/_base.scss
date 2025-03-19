@@ -17,6 +17,8 @@ body {
 
 	overflow-x: hidden;
 
+	box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.2);
+
 	@include dimension-settings(100vw, null, 144rem);
 }
 // *** End of Body ***
