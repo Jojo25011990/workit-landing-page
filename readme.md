@@ -30,7 +30,7 @@ Users should be able to:
 ### Links
 
 -   Solution URL: [Github](https://github.com/Jojo25011990/workit-landing-page)
--   Live Site URL: [Github Pages](https://your-live-site-url.com)
+-   Live Site URL: [Github Pages](https://jojo25011990.github.io/workit-landing-page/)
 
 ## My process
 
